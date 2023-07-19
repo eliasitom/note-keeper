@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import { TaskManager } from "./components/TaskManager";
 
 function App() {
+  const [fadeOf, setFadeOf] = useState(false);
+  const [fadeIn, setFadeIn] = useState(false);
+
+  const handleClick = () => {
+    setFadeOf(!fadeOf);
+
+    setTimeout(() => {
+      setFadeIn(true);
+    }, 1500);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <body className="App-body">
+        {fadeIn ? <TaskManager /> : undefined}
+        {!fadeIn ? (
+          <>
+            <div className="App-presentation">
+              <h1>note keeper</h1>
+              <p>An excellent choice if you want to manage your tasks</p>
+              <button onClick={handleClick}>create new task</button>
+            </div>
+            <div
+              className={`App-presentation-hide ${
+                fadeOf ? "App-active" : undefined
+              }`}
+            />
+          </>
+        ) : undefined}
+      </body>
     </div>
   );
 }

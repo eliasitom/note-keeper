@@ -1,0 +1,289 @@
+.Task-card {
+  width: 350px;
+  height: 500px;
+  margin: 10px;
+
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.48);
+  color: black;
+}
+
+/* HEADER */
+
+.Task-card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 15%;
+}
+.Task-card-header h2 {
+  width: 90%;
+  user-select: none;
+
+  border-bottom: 1px solid black;
+}
+
+
+
+
+
+
+
+/* BODY */
+
+.Task-card-body {
+  display: flex;
+  justify-content: center;
+
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+
+  height: 65%;
+}
+
+.Task-card-body p {
+  width: 90%;
+  user-select: none;
+}
+
+
+
+
+
+/* FOOTER */
+
+.Task-card-footer {
+  margin-bottom: 0;
+  height: 20%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* FOOTER SETTINGS */
+
+.Task-footer-settings {
+  width: 100%;
+  height: 50%;
+
+  border-top: 1px solid black;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Task-footer-settings svg {
+  font-size: 25px;
+  cursor: pointer;
+
+  user-select: none;
+}
+
+.Soft-trash {
+  color: rgba(0, 0, 0, 0.435);
+}
+
+/* FOOTER STATE */
+
+.Task-footer-state {
+  width: 100%;
+  height: 50%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  border-top: 1px solid black;
+
+  user-select: none;
+}
+.Task-card-footer a {
+  width: 50%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+}
+.Task-card-footer a:hover {
+  animation-name: a-hover;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.Task-card-footer a:not(:hover) {
+  animation-name: a-no-hover;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes a-hover {
+  0% {
+    width: 50%;
+  }
+  100% {
+    width: 55%;
+  }
+}
+@keyframes a-no-hover {
+  0% {
+    width: 55%;
+  }
+  100% {
+    width: 50%;
+  }
+}
+
+
+.Edit-panel {
+  height: 100%;
+}
+
+.Edit-panel textarea {
+  all: unset;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  
+  padding: 0 10px 0 10px;
+  resize: none;
+}
+.Edit-panel textarea::placeholder {
+  color: var(--color-0);
+  font-size: 16px;
+  font-weight: bold;
+
+}
+
+
+.Edit-panel-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 15%;
+  width: 100%;
+}
+
+.Edit-panel-header div {
+  height: 70%;
+  width: 90%;
+  margin-top: 5px;
+  padding-bottom: 5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--color-2);
+  user-select: none;
+}
+.Edit-panel-header textarea {
+  font-size: 24px;
+  color: black;
+
+  height: 50%;
+  width: 100%;
+  padding: 0;
+
+  overflow-y:hidden;
+
+}
+.Edit-panel-header textarea::placeholder {
+  font-size: 24px;
+}
+
+
+.Edit-panel-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 65%;
+  width: 100%;
+  
+}
+.Edit-panel-body div {
+  width: 90%;
+  height: 95%;
+
+  background-color: var(--color-2);
+  user-select: none;
+}
+.Edit-panel-body textarea {
+  height: 100%;
+  width: 90%;
+
+  word-break:normal;
+}
+
+
+.Edit-panel-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  height: 20%;
+}
+
+.Edit-panel-footer svg {
+  font-size: 25px;
+  cursor: pointer;
+
+  user-select: none;
+}
+
+
+
+
+.Edit-panel-footer-preferences {
+  height: 50%;
+  width: 100%;
+
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.Edit-panel-footer-color {
+  width: 30px;
+  height: 30px;
+
+  border: solid black 1px;
+  user-select: none;
+  cursor: pointer;
+}
+
+
+
+.Edit-panel-footer-resolution {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 50%;
+  width: 100%;
+}
+
+
+
+
+@media (max-width: 767px) {
+  .Task-card-body {
+    overflow-y: scroll;
+  }
+}

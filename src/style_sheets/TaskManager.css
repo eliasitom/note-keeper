@@ -1,0 +1,109 @@
+.Task-manager {
+    width: 100%;
+    min-height: 500px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.Task-manager form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 400px;
+    height: 300px;
+}
+.Task-manager form h4 {
+    color: var(--color-1);
+}
+.Task-manager input {
+    border: solid 1px var(--color-1);
+    background-color: transparent;
+    
+    width: 100%;
+    height: 30px;
+    margin: 5px;
+    padding: 0 5px 0 5px;
+    font-size: 18px;
+    color: white;
+
+}
+.Task-manager input::placeholder {
+    font-size: 18px;
+    color: var(--color-1);
+}
+
+.Task-manager h1 {
+    margin-top: 20px;
+}
+.Task-manager h3 {
+    margin: 0;
+    text-align: left;
+}
+
+
+
+.Tasks-main-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: 90%;
+}
+.Tasks-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    min-height: 800px;
+}
+.Tasks-container-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-bottom: 10px;
+
+    color: var(--color-1);
+}
+.Tasks-container-nav-current {
+    color: white;
+}
+
+.Tasks-container-nav a {
+    margin-right: 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.fade-out {
+    position: fixed;
+    bottom: 0;
+
+    width: 100%;
+    height: 1000px;
+    background-color: var(--color-0);
+
+    animation-name: fade-out;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade-out {
+    0% {bottom: 0}
+    100% {bottom: -1100px}
+}
+
+
+
+@media (max-width: 767px) {
+    .Task-manager form {
+        width: 80%;
+    }
+  }
