@@ -15,7 +15,7 @@ function App() {
   };
   return (
     <div className="App">
-      <body className="App-body">
+      <div className="App-body">
         {localStorage.getItem("tasks") ? (
           <TaskManager />
         ) : (
@@ -37,7 +37,7 @@ function App() {
             ) : undefined}
           </>
         )}
-      </body>
+      </div>
     </div>
   );
 }

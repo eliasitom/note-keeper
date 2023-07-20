@@ -23,6 +23,7 @@ export const TaskCard = ({
   const [newState, setNewState] = useState(state);
 
   const [editMode, setEditMode] = useState(false);
+  const [originalColor, setOriginalColor] = useState(color);
   const [currentColor, setCurrentColor] = useState(color);
 
   //#region task colors
@@ -77,22 +78,22 @@ export const TaskCard = ({
   const changeColor = () => {
     console.log(1);
     if (currentColor === 0) {
-      console.log(2);
       setCurrentColor(1);
     } else if (currentColor === 1) {
-      console.log(3);
       setCurrentColor(2);
     } else if (currentColor === 2) {
-      console.log(4);
       setCurrentColor(3);
     } else if (currentColor === 3) {
-      console.log(5);
       setCurrentColor(4);
     } else if (currentColor === 4) {
-      console.log(6);
       setCurrentColor(0);
     }
   };
+
+  const cancelChanges = () => {
+    setCurrentColor(originalColor);
+    setEditMode(false);
+  }
 
   const saveChanges = (newTitle, newBody) => {
     if (newBody && newTitle) {
@@ -108,9 +109,14 @@ export const TaskCard = ({
       );
       localStorage.setItem("tasks", JSON.stringify(newTaks));
       setEditMode(false);
+      setOriginalColor(currentColor)
       saved();
     }
   };
+
+  useEffect(()=> {
+    setOriginalColor(currentColor)
+  }, [])
 
   return (
     <div
@@ -121,13 +127,13 @@ export const TaskCard = ({
     >
       {editMode ? (
         <EditPanel
-          setEditMode={setEditMode}
           lastTitle={title}
           lastBody={body}
           currentColor={currentColor}
           changeColor={changeColor}
           colors={colors}
           boldColors={boldColors}
+          cancelChanges={cancelChanges}
           saveChanges={saveChanges}
         />
       ) : (
@@ -187,11 +193,11 @@ export const TaskCard = ({
 };
 
 const EditPanel = ({
-  setEditMode,
   lastTitle,
   lastBody,
   changeColor,
   boldColors,
+  cancelChanges,
   saveChanges,
 }) => {
   const [newTitle, setNewTitle] = useState(lastTitle);
@@ -241,7 +247,7 @@ const EditPanel = ({
           />
         </div>
         <div className="Edit-panel-footer-resolution">
-          <div><FaSquareXmark onClick={() => setEditMode(false)} /></div>
+          <div><FaSquareXmark onClick={cancelChanges} /></div>
           <div><FaSquareCheck onClick={() => saveChanges(newTitle, newBody)} /></div>
         </div>
       </div>
