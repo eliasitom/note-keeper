@@ -16,21 +16,27 @@ function App() {
   return (
     <div className="App">
       <body className="App-body">
-        {fadeIn ? <TaskManager /> : undefined}
-        {!fadeIn ? (
+        {localStorage.getItem("tasks") ? (
+          <TaskManager />
+        ) : (
           <>
-            <div className="App-presentation">
-              <h1>note keeper</h1>
-              <p>An excellent choice if you want to manage your tasks</p>
-              <button onClick={handleClick}>create new task</button>
-            </div>
-            <div
-              className={`App-presentation-hide ${
-                fadeOf ? "App-active" : undefined
-              }`}
-            />
+            {fadeIn ? <TaskManager /> : undefined}
+            {!fadeIn ? (
+              <>
+                <div className="App-presentation">
+                  <h1>note keeper</h1>
+                  <p>An excellent choice if you want to manage your tasks</p>
+                  <button onClick={handleClick}>create new task</button>
+                </div>
+                <div
+                  className={`App-presentation-hide ${
+                    fadeOf ? "App-active" : undefined
+                  }`}
+                />
+              </>
+            ) : undefined}
           </>
-        ) : undefined}
+        )}
       </body>
     </div>
   );

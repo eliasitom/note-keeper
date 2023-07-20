@@ -167,15 +167,17 @@ export const TaskCard = ({
             </div>
             <div className="Task-footer-settings">
               {priority ? (
-                <BsStarFill onClick={changePriority} />
+                <div><BsStarFill onClick={changePriority} /></div>
               ) : (
-                <BsStar onClick={changePriority} />
+                <div><BsStar onClick={changePriority} /></div>
               )}
-              <BsPencil onClick={() => setEditMode(true)} />
+              <div><BsPencil onClick={() => setEditMode(true)} /></div>
+              <div>
               <BsTrash3
                 onClick={deleted}
                 className={priority ? "Soft-trash" : ""}
               />
+              </div>
             </div>
           </div>
         </>
@@ -192,8 +194,8 @@ const EditPanel = ({
   boldColors,
   saveChanges,
 }) => {
-  const [newTitle, setNewTitle] = useState("");
-  const [newBody, setNewBody] = useState("");
+  const [newTitle, setNewTitle] = useState(lastTitle);
+  const [newBody, setNewBody] = useState(lastBody);
 
   return (
     <div className="Edit-panel">
@@ -239,9 +241,8 @@ const EditPanel = ({
           />
         </div>
         <div className="Edit-panel-footer-resolution">
-          <FaSquareXmark onClick={() => setEditMode(false)} />
-          <BsFillPencilFill style={{ cursor: "default" }} />
-          <FaSquareCheck onClick={() => saveChanges(newTitle, newBody)} />
+          <div><FaSquareXmark onClick={() => setEditMode(false)} /></div>
+          <div><FaSquareCheck onClick={() => saveChanges(newTitle, newBody)} /></div>
         </div>
       </div>
     </div>
